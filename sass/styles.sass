@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700|Oswald:400,700|Roboto&subset=latin-ext')
+
+//mixins
+=social-hover($bgc, $font-color)
+    background-color: $bgc
+    color: $font-color
+//font-sizes
+$small-menu-font: 1.25rem
+$small-menu-icon-font: 2.5rem
+$carousel-h1-font: 2.5rem
+$carousel-p-font: 1.15rem
+$carousel-btn-font: 1.2rem
+$basic-h1-font: 2.3rem
+$basic-p-font: 1.1rem
+$skills-font: 1.7rem
+$skills-i-font: 2.2rem
+$description-h3-font: 1.8rem
+$get-in-touch-h3-font: 1.9rem
+$footer-social-media-font: 2rem
+$footer-contact-font: 1.4rem
+
+*
+    margin: 0
+    padding: 0
+    list-style-type: none
+    font-family: 'Oswald', sans-serif
+
+
+.basic-h1
+    text-align: center
+    font-size: $basic-h1-font
+    font-family: "Lato"
+    padding: 10% 10% 0% 10%
+    color: #333
+
+.basic-p
+    text-align: justify
+    font-size: $basic-p-font
+    padding: 10% 5%
+    font-family: "Roboto"
+    font-weight: normal
+//social media hover
+.social-media
+    i
+        padding: 10px 20px
+        border-radius: 5px
+        transition: 0.6s
+    &:hover
+        cursor: pointer
+    .fa-facebook-f:hover
+        +social-hover(#4267b2, white)
+    .fa-google-plus-g:hover
+        +social-hover(#dc4e41, white)
+    .fa-twitter:hover
+        +social-hover(#28aae1, white)
+    .fa-pinterest-p:hover
+        +social-hover(#c51f26, white)
+    .fa-linkedin-in:hover
+        +social-hover(#07b, white)
+
+.header, .menu-lg
+    display: none
+
+.menu
+    display: flex
+    justify-content: space-between
+    flex-wrap: nowrap
+    width: 100%
+    height: 90px
+    background-color: #eee
+    box-shadow: 0px 0px 7px 1px black
+    position: sticky
+    top: 0
+    z-index: 2
+    .logo
+        padding: 10px
+        height: 70px
+        width: 270px
+        img
+            height: 100%
+            width: 100%
+    .burger-menu    
+        text-align: right
+        &>*
+            line-height: 80px
+            font-size: 40px
+            padding-right: 15px      
+        .fa-times, .fa-bars
+            display: none 
+            cursor: pointer
+        .active
+            display: block
+.menu-sm
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    background-color: #eee
+    height: calc(100vh - 80px)
+    text-align: center
+    font-size: $small-menu-font
+    margin-top: calc(-100vh + 80px)
+    position: fixed
+    top: 0
+    z-index: 1
+    transition: 0.6s
+    .menu-list
+        li
+            cursor: pointer
+            &:hover
+                color: white
+                transform: scale(1.2)
+        &:first-child
+            padding: 60px 0 30px 0
+        &>*
+            padding: 6px 0
+            text-transform: uppercase
+            letter-spacing: 1px              
+    .contact
+        display: flex
+        width: 100%
+        justify-content: space-around
+    .social-media
+        display: flex
+        justify-content: space-around
+        padding-bottom: 30px
+        font-size: $small-menu-icon-font
+    &.active
+        margin-top: 80px
+
+.carousel
+    width: 100%
+    height: 70vh
+    text-align: center
+    position: relative
+    &::after
+        content: ""
+        position: absolute
+        width: 100%
+        height: 100%
+        z-index: -1
+        left: 0
+        top: 0
+        background: url("../images/man.jpg") no-repeat scroll center
+        background-size: cover
+        opacity: 0.45
+    .carousel-h1
+        padding: 15% 0 0% 0
+        text-transform: uppercase
+        font-size: $carousel-h1-font
+        font-family: "Lato"
+    .carousel-p
+        padding: 10% 5%
+        font-family: "Roboto"
+        font-size: $carousel-p-font
+    .carousel-btn
+        text-transform: uppercase
+        padding: 15px 45px
+        box-shadow: none
+        background-color: #b96c45de
+        border: none
+        color: white
+        border-radius: 7px
+        font-size: $carousel-btn-font
+        box-shadow: 0px 0px 0px 1.5px #eee
+
+.who-we-are
+    width: 100%
+    .skills
+        display: flex
+        flex-direction: column
+        .container
+            display: flex
+            flex-direction: column
+            h3
+                text-align: center
+                font-size: $skills-font
+                font-family: "Lato"
+            i
+                padding-right: 5%
+                font-size: $skills-i-font
+                color: #00bc9c
+
+.latest-works
+    background-color: #dddddd75
+    .gallery
+        display: flex
+        flex-direction: column
+        .picture
+            width: 100%
+            .img-container
+                display: flex
+                align-items: center
+                width: 100%
+                height: 35vh
+                // background: url("../images/castle.jpg") no-repeat scroll center
+                background-size: cover
+                margin: 0 auto
+                border-radius: 5px
+                img
+                    flex-basis: 80%
+                    width: 80%
+                    height: 80%
+                    border-radius: 5px
+                i
+                    flex-basis: 10%
+                    text-align: center
+                    font-size: 2rem
+                    &:hover
+                        cursor: pointer
+            .description
+                text-align: center
+                h3
+                    padding-top: 20px
+                    font-size: $description-h3-font
+                    font-family: Lato
+
+.get-in-touch
+    h3
+        font-family: Lato
+        font-size: $get-in-touch-h3-font
+    .text-input
+        width: 90%
+        margin: 40px auto
+        height: 40px
+        cursor: text
+    .btn
+        background-color: #b96c45de
+        padding: 15px 45px
+        margin-bottom: 50px
+        color: white
+        border: none
+        border-radius: 7px
+        text-transform: uppercase
+        font-size: $carousel-btn-font
+        box-shadow: 0px 0px 2px 1.5px #444
+        cursor: pointer
+        &:hover
+            box-shadow: 0px 0px 10px 2px #444
+
+footer
+    background-color: #eee
+    .footer-logo
+        padding-top: 30px
+        width: 100%   
+        text-align: center
+        img
+            width: 60%
+            height: 70%
+    .contact, .social-media
+        display: flex
+        justify-content: space-around
+    h3, .contact, .social-media
+        padding: 25px 0 15px 0
+    .social-media
+        font-size: $footer-social-media-font
+    .contact
+        flex-direction: column
+        text-align: center
+        line-height: 300%
+        font-size: $footer-contact-font
+    .made-by
+        text-align: center 
+        h3         
+            font-family: Roboto
+            font-weight: normal
+            &:last-child
+                padding-top: 0
+                padding-bottom: 25px
+
+@media (min-width: 760px)
+    $small-menu-font: 1.8rem
+    $small-menu-icon-font: 3rem
+    $carousel-h1-font: 4rem
+    $carousel-p-font: 1.4rem
+    $carousel-btn-font: 1.2rem
+    $basic-h1-font: 3rem
+    $basic-p-font: 1.1rem
+    $skills-font: 1.7rem
+    $skills-i-font: 2.2rem
+    $description-h3-font: 1.8rem
+    $get-in-touch-h3-font: 1.9rem
+    $footer-social-media-font: 3rem
+    $footer-contact-font: 1.8rem
+
+    .basic-h1
+        font-size: $basic-h1-font
+
+    .menu-sm
+        font-size: $small-menu-font
+        .social-media
+            font-size: $small-menu-icon-font
+
+    .carousel
+        .carousel-h1
+            padding: 10% 0 0% 0
+            font-size: $carousel-h1-font
+        .carousel-p
+            padding: 7% 5%
+            font-family: "Roboto"
+            font-size: $carousel-p-font
+        .carousel-btn
+            padding: 15px 45px
+            font-size: $carousel-btn-font
+            &:hover
+                box-shadow: 0px 0px 44px 2px black
+                cursor: pointer
+
+    .who-we-are
+        .skills
+            flex-direction: row
+            justify-content: space-around
+            flex-wrap: wrap
+            .container
+                flex-basis: 45%
+                
+
+    .latest-works
+        .gallery
+            flex-direction: row
+            flex-wrap: wrap
+            justify-content: space-around
+            .picture
+                flex-basis: 45%
+    footer
+        .social-media
+            font-size: $footer-social-media-font
+        .contact
+            flex-direction: row
+            line-height: 300%
+            font-size: $footer-contact-font
+
+@media (min-width: 1050px)
+    $small-menu-font: 1.8rem
+    $small-menu-icon-font: 3rem
+    $carousel-h1-font: 6rem
+    $carousel-p-font: 1.5rem
+    $carousel-btn-font: 1.2rem
+    $basic-h1-font: 4.3rem
+    $basic-p-font: 1.4rem
+    $skills-font: 2rem
+    $skills-i-font: 4.5rem
+    $description-h3-font: 1.8rem
+    $get-in-touch-h3-font: 1.9rem
+    $footer-social-media-font: 2.2rem
+    $footer-contact-font: 1.7rem
+    $header-contact-font: 1.1rem
+    $header-social-media-font: 1.4rem
+    $lg-menu-elements: 1.35rem
+
+    .basic-h1
+        padding-top: 4%
+        font-size: $basic-h1-font
+    .basic-p
+        font-size: $basic-p-font
+
+    .menu-sm
+        display: none
+
+    .container
+        .header
+            height: 50px
+            display: flex
+            justify-content: space-around
+            .contact, .social-media
+                line-height: 40px
+                display: flex
+            .contact
+                font-size: $header-contact-font
+                .email
+                    padding-right: 40px
+            .social-media
+                font-size: $header-social-media-font
+                i
+                    margin: 0 10px
+                    padding: 5px 10px
+
+        .menu
+            display: flex
+            justify-content: flex-start
+            .logo
+                padding-left: 3%
+            .menu-lg
+                flex-basis: 65%
+                display: block
+                padding-left: 5%
+                ul
+                    display: flex
+                    justify-content: space-around
+                    &>*
+                        line-height: 90px
+                        font-size: $lg-menu-elements
+                        font-family: Lato
+                        cursor: pointer
+                        &:hover
+                            color: white
+                            transform: scale(1.2)
+            .burger-menu
+                display: none
+
+    .carousel
+        .carousel-h1
+            padding: 5% 0 0% 0
+            font-size: $carousel-h1-font
+        .carousel-p
+            padding: 4% 20%
+            font-size: $carousel-p-font
+
+    .who-we-are
+        .skills
+            .container
+                flex-basis: 20%
+                h3
+                    font-size: $skills-font
+                i
+                    padding-right: 5%
+                    font-size: $skills-i-font
+
+    .latest-works
+        .gallery
+            .picture
+                .img-container
+                    height: 50vh
+                    justify-content: space-around
+                    img
+                        flex-basis: 85%
+                        height: 100%
+                        transition: 1s
+                    i
+                        flex-basis: 5%
+                        text-align: center
+                        font-size: 3rem
+                        position: relative
+                        z-index: 1
+                .description
+                    h3
+                        font-size: $description-h3-font
+                    
+    footer
+        display: flex
+        flex-direction: row
+        flex-wrap: wrap
+        justify-content: space-around
+        align-items: center
+        .footer-logo
+            flex-basis: 30%
+            align-self: center
+            img          
+                height: 50%
+        .contact, .social-media
+            flex-basis: 30%
+            display: flex 
+        .social-media
+            font-size: $footer-social-media-font
+        .contact
+            flex-direction: column
+            text-align: center
+            font-size: $footer-contact-font
+        .made-by
+            text-align: center 
+            h3         
+                font-family: Roboto
+                font-weight: normal
+                &:last-child
+                    padding-top: 0
+                    padding-bottom: 25px
+
+@media (min-width: 1480px)
+    footer
+        .contact
+            flex-direction: row
+
